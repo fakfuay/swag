@@ -1,6 +1,7 @@
 *** Settings ***
 Library            SeleniumLibrary
 Suite Setup    Set Selenium Speed    0.3s
+Test Setup    Open web browser
 Test Teardown    Close Browser
 Suite Teardown    Close All Browsers
 
@@ -67,24 +68,20 @@ Verify Total
 
 *** Test Cases ***
 SWAG-001
-    Open web browser
     login-Pass
     Sleep    2s
     Wait Until Page Contains    Swag Labs
 
 SWAG-002
-    Open web browser
     Login-Fail
     Verify-msg password
 
 SWAG-003
-    Open web browser
     login-Pass
     Add to cart
     Verify goods in cart
 
 SWAG-004
-    Open web browser
     login-Pass
     Add to cart
     Sleep    1s
@@ -94,7 +91,6 @@ SWAG-004
     Should Be Equal As Strings    ${goods_of_cart}    ${EMPTY}
 
 SWAG-005
-    Open web browser
     login-Pass
     Add to cart
     Click Element    xpath=//*[@id="shopping_cart_container"]/a
@@ -108,15 +104,13 @@ SWAG-005
     Click Element    xpath=//*[@id="finish"]
     sleep    2s
     Wait Until Page Contains    Thank you for your order!
+    
 SWAG-006
-    Open web browser
     login-Pass
     Click Element    xpath=//*[@id="react-burger-menu-btn"]
     Sleep    1s
     Click Element    xpath=//*[@id="logout_sidebar_link"]
     Sleep    2s
     Wait Until Page Contains    Swag Labs
-
-
 
 
