@@ -51,8 +51,9 @@ Checkout
 
 
 Verify goods in cart
-    ${goods_of_cart}    Get Text    ${locator_number_cart}
-    Should Be Equal As Numbers    ${goods_of_cart}    1
+    [Arguments]    ${goods}    ${price}
+    ${txt}    Get Text    ${goods}
+    Should Be Equal As Strings    ${txt}    ${price}
 
 Verify price of goods
     ${price}    Get Text    ${locator_price}
@@ -65,6 +66,9 @@ Verify name of goods
 Verify Total
     ${total}    Get Text    ${locator_checkoutprice}
     Should Be Equal As strings    ${total}    $29.99
+
+verify
+    Verify goods in cart    goods=${EMPTY}    price=${EMPTY}
 
 *** Test Cases ***
 SWAG-001
@@ -80,6 +84,7 @@ SWAG-003
     login-Pass
     Add to cart
     Verify goods in cart
+
 
 SWAG-004
     login-Pass
@@ -99,12 +104,11 @@ SWAG-005
     Verify price of goods
     Click Element    xpath=//*[@id="checkout"]
     Checkout
-    Verify name of goods
-    Verify Total
+    Verify
     Click Element    xpath=//*[@id="finish"]
     sleep    2s
     Wait Until Page Contains    Thank you for your order!
-    
+
 SWAG-006
     login-Pass
     Click Element    xpath=//*[@id="react-burger-menu-btn"]
@@ -112,5 +116,4 @@ SWAG-006
     Click Element    xpath=//*[@id="logout_sidebar_link"]
     Sleep    2s
     Wait Until Page Contains    Swag Labs
-
-
+    
