@@ -83,7 +83,7 @@ SWAG-002
 SWAG-003
     login-Pass
     Add to cart
-    Verify goods in cart
+    Verify
 
 
 SWAG-004
