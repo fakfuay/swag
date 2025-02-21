@@ -8,17 +8,17 @@ Suite Teardown    Close All Browsers
 *** Variables ***
 ${Url}    https://www.saucedemo.com/
 ${Browser}    chrome
-${user}    id=user-name
-${password}    id=password
+${user}    xpath=//*[@id="user-name"]
+${password}    xpath=//*[@id="password"]
 ${locator_error_password}    xpath=//*[@id="login_button_container"]/div/form/div[3]/h3
 ${locator_number_cart}    xpath=//*[@id="shopping_cart_container"]/a/span
 ${locator_number_cartt}    xpath=//*[@id="shopping_cart_container"]/a
 ${locator_price}    xpath=//*[@id="cart_contents_container"]/div/div[1]/div[3]/div[2]/div[2]/div
 ${locator_namegoods}    xpath=//*[@id="item_4_title_link"]/div
 ${locator_checkoutprice}    xpath=//*[@id="checkout_summary_container"]/div/div[1]/div[3]/div[2]/div[2]/div
-${firstname}    id=first-name
-${lastname}    id=last-name
-${zip/postcode}    id=postal-code
+${firstname}    xpath=//*[@id="first-name"]
+${lastname}    xpath=//*[@id="last-name"]
+${zip/postcode}    xpath=//*[@id="postal-code"]
 
 
 *** Keywords ***
