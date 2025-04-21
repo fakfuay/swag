@@ -16,8 +16,8 @@ open web browser
     Maximize Browser Window
 
 log in
-    open web browser
     [Arguments]    ${usernameargument}    ${passwordargument}
+    open web browser
     Input Text    ${username}    ${usernameargument}
     Input Password    ${password}    ${passwordargument}
     Click Button    ${button}
